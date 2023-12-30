@@ -1,0 +1,584 @@
+{
+  "Categories": [
+    {
+      "id": 1,
+      "title": "Fruits and Vegetables",
+      "desc": "Fresh and organic fruit and vegetable products",
+      "image_slug": "fruits-vegetables-image"
+    },
+    {
+      "id": 2,
+      "title": "Meat and Fish",
+      "desc": "Fresh meat and seafood products",
+      "image_slug": "meat-fish-image"
+    },
+    {
+      "id": 3,
+      "title": "Dairy and Dairy Products",
+      "desc": "Fresh milk, cheese, yogurt, etc.",
+      "image_slug": "dairy-products-image"
+    },
+    {
+      "id": 4,
+      "title": "Bakery Products",
+      "desc": "Fresh bread, pastries, and bakery items",
+      "image_slug": "baked-goods-image"
+    },
+    {
+      "id": 5,
+      "title": "Dry Goods",
+      "desc": "Legumes, pasta, rice, etc.",
+      "image_slug": "dry-goods-image"
+    }
+  ],
+  "Products": [
+    {
+      "id": 1,
+      "title": "Organic Apple",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?OrganicApple",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?OrganicApple",
+        "https://source.unsplash.com/random/350x350/?OrganicApple"
+      ],
+      "price": 5.99,
+      "date": "2023-01-01"
+    },
+    {
+      "id": 2,
+      "title": "Organic Tomato",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?OrganicTomato",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?OrganicTomato",
+        "https://source.unsplash.com/random/350x350/?OrganicTomato"
+      ],
+      "price": 3.99,
+      "date": "2023-01-02"
+    },
+    {
+      "id": 3,
+      "title": "Salmon Fillet",
+      "categoryid": 2,
+      "image": "https://source.unsplash.com/random/350x350/?SalmonFillet",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?SalmonFillet",
+        "https://source.unsplash.com/random/350x350/?SalmonFillet"
+      ],
+      "price": 15.99,
+      "date": "2023-01-03"
+    },
+    {
+      "id": 4,
+      "title": "Greek Yogurt",
+      "categoryid": 3,
+      "image": "https://source.unsplash.com/random/350x350/?GreekYogurt",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?GreekYogurt",
+        "https://source.unsplash.com/random/350x350/?GreekYogurt"
+      ],
+      "price": 4.99,
+      "date": "2023-01-04"
+    },
+    {
+      "id": 5,
+      "title": "Baguette",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?Baguette",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Baguette",
+        "https://source.unsplash.com/random/350x350/?Baguette"
+      ],
+      "price": 2.49,
+      "date": "2023-01-05"
+    },
+    {
+      "id": 6,
+      "title": "Banana",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?Banana",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Banana",
+        "https://source.unsplash.com/random/350x350/?Banana"
+      ],
+      "price": 1.99,
+      "date": "2023-01-06"
+    },
+    {
+      "id": 7,
+      "title": "Chicken Breast",
+      "categoryid": 2,
+      "image": "https://source.unsplash.com/random/350x350/?ChickenBreast",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?ChickenBreast",
+        "https://source.unsplash.com/random/350x350/?ChickenBreast"
+      ],
+      "price": 8.99,
+      "date": "2023-01-07"
+    },
+    {
+      "id": 8,
+      "title": "Milk",
+      "categoryid": 3,
+      "image": "https://source.unsplash.com/random/350x350/?Milk",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Milk",
+        "https://source.unsplash.com/random/350x350/?Milk"
+      ],
+      "price": 2.49,
+      "date": "2023-01-08"
+    },
+    {
+      "id": 9,
+      "title": "Croissant",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?Croissant",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Croissant",
+        "https://source.unsplash.com/random/350x350/?Croissant"
+      ],
+      "price": 1.99,
+      "date": "2023-01-09"
+    },
+    {
+      "id": 10,
+      "title": "Rice",
+      "categoryid": 5,
+      "image": "https://source.unsplash.com/random/350x350/?Rice",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Rice",
+        "https://source.unsplash.com/random/350x350/?Rice"
+      ],
+      "price": 3.99,
+      "date": "2023-01-10"
+    },
+    {
+      "id": 11,
+      "title": "Orange Juice",
+      "categoryid": 3,
+      "image": "https://source.unsplash.com/random/350x350/?OrangeJuice",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?OrangeJuice",
+        "https://source.unsplash.com/random/350x350/?OrangeJuice"
+      ],
+      "price": 4.49,
+      "date": "2023-01-11"
+    },
+    {
+      "id": 12,
+      "title": "Chocolate Croissant",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?ChocolateCroissant",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?ChocolateCroissant",
+        "https://source.unsplash.com/random/350x350/?ChocolateCroissant"
+      ],
+      "price": 2.99,
+      "date": "2023-01-12"
+    },
+    {
+      "id": 13,
+      "title": "Pasta",
+      "categoryid": 5,
+      "image": "https://source.unsplash.com/random/350x350/?Pasta",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Pasta",
+        "https://source.unsplash.com/random/350x350/?Pasta"
+      ],
+      "price": 1.99,
+      "date": "2023-01-13"
+    },
+    {
+      "id": 14,
+      "title": "Avocado",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?Avocado",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Avocado",
+        "https://source.unsplash.com/random/350x350/?Avocado"
+      ],
+      "price": 3.99,
+      "date": "2023-01-14"
+    },
+    {
+      "id": 15,
+      "title": "Salad Mix",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?SaladMix",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?SaladMix",
+        "https://source.unsplash.com/random/350x350/?SaladMix"
+      ],
+      "price": 6.99,
+      "date": "2023-01-15"
+    },
+    {
+      "id": 16,
+      "title": "Fresh Salmon",
+      "categoryid": 2,
+      "image": "https://source.unsplash.com/random/350x350/?FreshSalmon",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?FreshSalmon",
+        "https://source.unsplash.com/random/350x350/?FreshSalmon"
+      ],
+      "price": 12.99,
+      "date": "2023-01-16"
+    },
+    {
+      "id": 17,
+      "title": "Blueberry Muffin",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?BlueberryMuffin",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?BlueberryMuffin",
+        "https://source.unsplash.com/random/350x350/?BlueberryMuffin"
+      ],
+      "price": 1.49,
+      "date": "2023-01-17"
+    },
+    {
+      "id": 18,
+      "title": "Cheddar Cheese",
+      "categoryid": 3,
+      "image": "https://source.unsplash.com/random/350x350/?CheddarCheese",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?CheddarCheese",
+        "https://source.unsplash.com/random/350x350/?CheddarCheese"
+      ],
+      "price": 7.99,
+      "date": "2023-01-18"
+    },
+    {
+      "id": 19,
+      "title": "Whole Wheat Bread",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?WholeWheatBread",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?WholeWheatBread",
+        "https://source.unsplash.com/random/350x350/?WholeWheatBread"
+      ],
+      "price": 3.49,
+      "date": "2023-01-19"
+    },
+    {
+      "id": 20,
+      "title": "Quinoa",
+      "categoryid": 5,
+      "image": "https://source.unsplash.com/random/350x350/?Quinoa",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Quinoa",
+        "https://source.unsplash.com/random/350x350/?Quinoa"
+      ],
+      "price": 5.99,
+      "date": "2023-01-20"
+    },
+    {
+      "id": 21,
+      "title": "Cucumber",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?Cucumber",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Cucumber",
+        "https://source.unsplash.com/random/350x350/?Cucumber"
+      ],
+      "price": 1.29,
+      "date": "2023-01-21"
+    },
+    {
+      "id": 22,
+      "title": "Pineapple",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?Pineapple",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Pineapple",
+        "https://source.unsplash.com/random/350x350/?Pineapple"
+      ],
+      "price": 4.99,
+      "date": "2023-01-22"
+    },
+    {
+      "id": 23,
+      "title": "Ground Beef",
+      "categoryid": 2,
+      "image": "https://source.unsplash.com/random/350x350/?GroundBeef",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?GroundBeef",
+        "https://source.unsplash.com/random/350x350/?GroundBeef"
+      ],
+      "price": 9.99,
+      "date": "2023-01-23"
+    },
+    {
+      "id": 24,
+      "title": "Vanilla Yogurt",
+      "categoryid": 3,
+      "image": "https://source.unsplash.com/random/350x350/?VanillaYogurt",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?VanillaYogurt",
+        "https://source.unsplash.com/random/350x350/?VanillaYogurt"
+      ],
+      "price": 3.99,
+      "date": "2023-01-24"
+    },
+    {
+      "id": 25,
+      "title": "Bagel",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?Bagel",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Bagel",
+        "https://source.unsplash.com/random/350x350/?Bagel"
+      ],
+      "price": 1.79,
+      "date": "2023-01-25"
+    },
+    {
+      "id": 26,
+      "title": "Spinach",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?Spinach",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Spinach",
+        "https://source.unsplash.com/random/350x350/?Spinach"
+      ],
+      "price": 2.49,
+      "date": "2023-01-26"
+    },
+    {
+      "id": 27,
+      "title": "Salmon Sushi",
+      "categoryid": 2,
+      "image": "https://source.unsplash.com/random/350x350/?SalmonSushi",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?SalmonSushi",
+        "https://source.unsplash.com/random/350x350/?SalmonSushi"
+      ],
+      "price": 14.99,
+      "date": "2023-01-27"
+    },
+    {
+      "id": 28,
+      "title": "Almond Milk",
+      "categoryid": 3,
+      "image": "https://source.unsplash.com/random/350x350/?AlmondMilk",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?AlmondMilk",
+        "https://source.unsplash.com/random/350x350/?AlmondMilk"
+      ],
+      "price": 3.99,
+      "date": "2023-01-28"
+    },
+    {
+      "id": 29,
+      "title": "Chocolate Croissant",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?ChocolateCroissant",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?ChocolateCroissant",
+        "https://source.unsplash.com/random/350x350/?ChocolateCroissant"
+      ],
+      "price": 2.99,
+      "date": "2023-01-29"
+    },
+    {
+      "id": 30,
+      "title": "Brown Rice",
+      "categoryid": 5,
+      "image": "https://source.unsplash.com/random/350x350/?BrownRice",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?BrownRice",
+        "https://source.unsplash.com/random/350x350/?BrownRice"
+      ],
+      "price": 4.49,
+      "date": "2023-01-30"
+    },
+    {
+      "id": 31,
+      "title": "Strawberries",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?Strawberries",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Strawberries",
+        "https://source.unsplash.com/random/350x350/?Strawberries"
+      ],
+      "price": 3.99,
+      "date": "2023-01-31"
+    },
+    {
+      "id": 32,
+      "title": "Ground Turkey",
+      "categoryid": 2,
+      "image": "https://source.unsplash.com/random/350x350/?GroundTurkey",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?GroundTurkey",
+        "https://source.unsplash.com/random/350x350/?GroundTurkey"
+      ],
+      "price": 6.99,
+      "date": "2023-01-32"
+    },
+    {
+      "id": 33,
+      "title": "Greek Feta Cheese",
+      "categoryid": 3,
+      "image": "https://source.unsplash.com/random/350x350/?GreekFetaCheese",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?GreekFetaCheese",
+        "https://source.unsplash.com/random/350x350/?GreekFetaCheese"
+      ],
+      "price": 5.99,
+      "date": "2023-01-33"
+    },
+    {
+      "id": 34,
+      "title": "Baguette with Seeds",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?BaguettewithSeeds",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?BaguettewithSeeds",
+        "https://source.unsplash.com/random/350x350/?BaguettewithSeeds"
+      ],
+      "price": 2.99,
+      "date": "2023-01-34"
+    },
+    {
+      "id": 35,
+      "title": "Quinoa Salad",
+      "categoryid": 5,
+      "image": "https://source.unsplash.com/random/350x350/?QuinoaSalad",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?QuinoaSalad",
+        "https://source.unsplash.com/random/350x350/?QuinoaSalad"
+      ],
+      "price": 7.49,
+      "date": "2023-01-35"
+    },
+    {
+      "id": 36,
+      "title": "Mango",
+      "categoryid": 1,
+      "image": "https://source.unsplash.com/random/350x350/?Mango",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?Mango",
+        "https://source.unsplash.com/random/350x350/?Mango"
+      ],
+      "price": 2.99,
+      "date": "2023-01-36"
+    },
+    {
+      "id": 37,
+      "title": "Tilapia Fillet",
+      "categoryid": 2,
+      "image": "https://source.unsplash.com/random/350x350/?TilapiaFillet",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?TilapiaFillet",
+        "https://source.unsplash.com/random/350x350/?TilapiaFillet"
+      ],
+      "price": 11.99,
+      "date": "2023-01-37"
+    },
+    {
+      "id": 38,
+      "title": "Coconut Milk",
+      "categoryid": 3,
+      "image": "https://source.unsplash.com/random/350x350/?CoconutMilk",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?CoconutMilk",
+        "https://source.unsplash.com/random/350x350/?CoconutMilk"
+      ],
+      "price": 4.99,
+      "date": "2023-01-38"
+    },
+    {
+      "id": 39,
+      "title": "Multigrain Bread",
+      "categoryid": 4,
+      "image": "https://source.unsplash.com/random/350x350/?MultigrainBread",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?MultigrainBread",
+        "https://source.unsplash.com/random/350x350/?MultigrainBread"
+      ],
+      "price": 3.49,
+      "date": "2023-01-39"
+    },
+    {
+      "id": 40,
+      "title": "Wild Rice",
+      "categoryid": 5,
+      "image": "https://source.unsplash.com/random/350x350/?WildRice",
+      "gallery": [
+        "https://source.unsplash.com/random/350x350/?WildRice",
+        "https://source.unsplash.com/random/350x350/?WildRice"
+      ],
+      "price": 5.99,
+      "date": "2023-01-40"
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "name": "Yasir Akkaya",
+      "email": "yasir@akkaya.com",
+      "password": "1907"
+    },
+    {
+      "id": 2,
+      "name": "Ali Rıza Durak",
+      "email": "ali@riza.com",
+      "password": "1905"
+    }
+  ],
+  "Blogs": [
+    {
+      "id": 1,
+      "title": "Tech Blog",
+      "short_desc": "Latest tech trends",
+      "long_desc": "In-depth articles on the latest technology",
+      "image": "tech-blog-image.jpg",
+      "date": "2023-01-03"
+    },
+    {
+      "id": 2,
+      "title": "Fashion Blog",
+      "short_desc": "Trending fashion styles",
+      "long_desc": "Explore the latest fashion trends and styles",
+      "image": "fashion-blog-image.jpg",
+      "date": "2023-01-04"
+    }
+  ],
+  "Wishlists": [
+    {
+      "id": 1,
+      "products": [2,3],
+      "user_id": 1
+    }
+  ],
+  "Orders": [
+    {
+      "orderid": 1,
+      "user_id": 1,
+      "products": [
+        {
+          "product_id": 1,
+          "date": "2023-01-05",
+          "status": "Shipped"
+        },
+        {
+          "product_id": 2,
+          "date": "2023-01-06",
+          "status": "Processing"
+        }
+      ]
+    },
+    {
+      "orderid": 2,
+      "user_id": 2,
+      "products": [
+        {
+          "product_id": 1,
+          "date": "2023-01-07",
+          "status": "Delivered"
+        }
+      ]
+    }
+  ]
+}
