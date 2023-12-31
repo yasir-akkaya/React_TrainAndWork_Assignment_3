@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function footer() {
     return (
@@ -13,11 +14,11 @@ function footer() {
                             <div className="social-media-section">
                                 <h2>Follow us</h2>
                                 <div className="social-links">
-                                    <a className="facebook" href="http://www.facebook.com/" data-tooltip="Facebook"><i className="fa fa-facebook" /></a>
-                                    <a className="twitter" href="http://www.twitter.com/" data-tooltip="Twitter"><i className="fa fa-twitter" /></a>
-                                    <a className="instagram" href="http://www.instagram.com/" data-tooltip="Instagram"><i className="fa fa-instagram" /></a>
-                                    <a className="linkedin" href="http://www.linkedin.com/" data-tooltip="Linkedin"><i className="fa fa-linkedin" /></a>
-                                    <a className="rss" href="http://www.rss.com/" data-tooltip="RSS"><i className="fa fa-rss" /></a>
+                                    <a target='_blank' className="facebook" href="http://www.facebook.com/" data-tooltip="Facebook"><i className="fa fa-facebook" /></a>
+                                    <a target='_blank' className="twitter" href="http://www.twitter.com/" data-tooltip="Twitter"><i className="fa fa-twitter" /></a>
+                                    <a target='_blank' className="instagram" href="http://www.instagram.com/" data-tooltip="Instagram"><i className="fa fa-instagram" /></a>
+                                    <a target='_blank' className="linkedin" href="http://www.linkedin.com/" data-tooltip="Linkedin"><i className="fa fa-linkedin" /></a>
+                                    <a target='_blank' className="rss" href="http://www.rss.com/" data-tooltip="RSS"><i className="fa fa-rss" /></a>
                                 </div>
                             </div>
                             {/*=======  End of social media links  =======*/}
@@ -68,79 +69,6 @@ function footer() {
             </div>
             {/*=======  End of social contact section  =======*/}
             {/*=======  footer navigation  =======*/}
-            <div className="footer-navigation-section pt-40 pb-40">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 mb-xs-30">
-                            {/*=======  single navigation section  =======*/}
-                            <div className="single-navigation-section">
-                                <h3 className="nav-section-title">INFORMATION</h3>
-                                <ul>
-                                    <li> <a href="about-us.html">About Us</a></li>
-                                    <li> <a href="#">Delivery Information</a></li>
-                                    <li> <a href="#">Privacy Policy</a></li>
-                                    <li> <a href="#">Terms &amp; Condition</a></li>
-                                </ul>
-                            </div>
-                            {/*=======  End of single navigation section  =======*/}
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 mb-xs-30">
-                            {/*=======  single navigation section  =======*/}
-                            <div className="single-navigation-section">
-                                <h3 className="nav-section-title">MY ACCOUNT</h3>
-                                <ul>
-                                    <li> <a href="my-account.html">My Account</a></li>
-                                    <li> <a href="wishlist.html">Wishlist</a></li>
-                                    <li> <a href="cart.html">Shopping Cart</a></li>
-                                    <li> <a href="#">Newsletter</a></li>
-                                </ul>
-                            </div>
-                            {/*=======  End of single navigation section  =======*/}
-                        </div>
-                        <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 mb-xs-30">
-                            {/*=======  single navigation section  =======*/}
-                            <div className="single-navigation-section">
-                                <h3 className="nav-section-title">CUSTOMER SERVICE</h3>
-                                <ul>
-                                    <li> <a href="contact.html">Contact</a></li>
-                                    
-                                </ul>
-                            </div>
-                            {/*=======  End of single navigation section  =======*/}
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            {/*=======  End of footer navigation  =======*/}
-            {/*=======  copyright section  =======*/}
-            <div className="copyright-section pt-35 pb-35">
-                <div className="container">
-                    <div className="row align-items-md-center align-items-sm-center">
-                        <div className="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-center text-md-start">
-                            {/*=======  copyright text	  =======*/}
-                            <div className="copyright-segment">
-                                <p>
-                                    <a href="#">Privacy Policy</a>
-                                    <span className="separator">|</span>
-                                    <a href="#">Term and conditions</a>
-                                </p>
-                                <p className="copyright-text">© 2022 <a href="https://htmldemo.net/">Greenfarm</a>. All Rights
-                                    Reserved</p>
-                            </div>
-                            {/*=======  End of copyright text	  =======*/}
-                        </div>
-                        <div className="col-lg-8 col-md-6 col-sm-12 col-xs-12">
-                            {/*=======  payment info  =======*/}
-                            <div className="payment-info text-center text-md-end">
-                                <p>Allow payment base on <img width={316} height={44} src="assets/images/payment-icon.webp" className="img-fluid" alt="" /></p>
-                            </div>
-                            {/*=======  End of payment info  =======*/}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/*=======  End of copyright section  =======*/}
         </footer>
 
     )
