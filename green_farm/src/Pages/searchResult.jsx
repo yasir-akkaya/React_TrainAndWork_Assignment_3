@@ -1,6 +1,6 @@
 import React from 'react'
 
-function searchResult() {
+function SearchResult() {
   return (
     <div className="shop-page-container mb-50">
       <div className="container">
@@ -701,4 +701,4 @@ function searchResult() {
   )
 }
 
-export default searchResult
+export default SearchResult

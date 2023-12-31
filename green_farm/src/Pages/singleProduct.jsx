@@ -1,6 +1,6 @@
 import React from 'react'
 
-function singleProduct() {
+function SingleProduct() {
   return (
     <div>
       <div className="single-product-content ">
@@ -431,4 +431,4 @@ function singleProduct() {
   )
 }
 
-export default singleProduct
+export default SingleProduct

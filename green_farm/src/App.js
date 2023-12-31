@@ -1,38 +1,58 @@
 import './App.css';
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import FaQ from './Pages/faq.jsx'
-import Contact from './Pages/contact.jsx'
-import Header from './Components/header.jsx'
-import Footer from './Components/footer.jsx'
-import Home from './Pages/home.jsx'
-import SingleProduct from './Pages/singleProduct.jsx'
-import Cart from './Pages/cart.jsx'
-import Checkout from './Pages/checkout.jsx'
-import Wishlist from './Pages/wishlist.jsx'
-import LoginRegister from './Pages/loginRegister.jsx'
-import Blogs from './Pages/blogs.jsx'
-import SingleBlog from './Pages/singleBlog.jsx'
-import ShopList from './Pages/shopList.jsx'
-import SearchResult from './Pages/searchResult.jsx'
+import React, { useState } from 'react';
+import { Route, Routes, Router } from 'react-router-dom';
+import FaQ from './Pages/Faq.jsx'
+import Contact from './Pages/Contact.jsx'
+import Header from './Components/Header.jsx'
+import Footer from './Components/Footer.jsx'
+import Home from './Pages/Home.jsx'
+import SingleProduct from './Pages/SingleProduct.jsx'
+import Cart from './Pages/Cart.jsx'
+import Checkout from './Pages/Checkout.jsx'
+import Wishlist from './Pages/Wishlist.jsx'
+import LoginRegister from './Pages/LoginRegister.jsx'
+import Blogs from './Pages/Blogs.jsx'
+import SingleBlog from './Pages/SingleBlog.jsx'
+import ShopList from './Pages/ShopList.jsx'
+import SearchResult from './Pages/SearchResult.jsx'
 
 function App() {
+  const [blogs, setBlogs] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [dealProducts, setDealProducts] = useState([]);
+
+
+  fetch('http://localhost:3000/Blogs')
+    .then(response => response.json())
+    .then(data => setBlogs(data))
+    .catch(error => console.error('Error fetching blogs:', error));
+
+    fetch('http://localhost:3000/Categories')
+    .then(response => response.json())
+    .then(data => setCategories(data))
+    .catch(error => console.error('Error fetching blogs:', error));
+
+    fetch('http://localhost:3000/Products')
+    .then(response => response.json())
+    .then(data => setDealProducts(data))
+    .catch(error => console.error('Error fetching blogs:', error));
+
   return (
     <>
       <Header />
       <Routes>
 
         {/* ANASAYFA */}
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home categories={categories} dealProducts={dealProducts}/> }/>
 
         {/* DİNAMİK/SÜREKLİ DEĞİŞİM */}
-        <Route path='/single-product' element={<SingleProduct />} />
-        <Route path='/shop-list' element={<ShopList />} />
-        <Route path='/search-result' element={<SearchResult />} />
+        <Route path='/single-product/:productId' element={<SingleProduct/>}/>
+        <Route path='/shop-list' element={<ShopList/>}/>
+        <Route path='/search-result' element={<SearchResult/>}/>
 
         {/* BLOG/STATİK YAPI */}
-        <Route path='/blogs' element={<Blogs />} />
-        <Route path='/single-blog' element={<SingleBlog />} />
+        <Route path="/blogs" element={<Blogs blogs={blogs} />} />
+        <Route path="/single-blog/:blogId" element={<SingleBlog blogs={blogs} />} />
 
 
         {/* BENZER YAPIDAKİLER */}

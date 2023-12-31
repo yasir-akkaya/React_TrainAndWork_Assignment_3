@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function header() {
+function Header() {
     return (
         <header>
-            {/*=======  header top  =======*/}
+            {/*=======  Header top  =======*/}
             <div className="header-top pt-10 pb-10 pt-lg-10 pb-lg-10 pt-md-10 pb-md-10">
                 <div className="container">
                     <div className="row">
@@ -23,9 +23,9 @@ function header() {
                     </div>
                 </div>
             </div>
-            {/*=======  End of header top  =======*/}
-            {/*=======  header bottom  =======*/}
-            <div className="header-bottom header-bottom-one header-sticky">
+            {/*=======  End of Header top  =======*/}
+            {/*=======  Header bottom  =======*/}
+            <div className="header-bottom Header-bottom-one Header-sticky">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-3 col-sm-12 col-xs-12 text-lg-start text-md-center text-sm-center">
@@ -39,7 +39,7 @@ function header() {
                         </div>
                         <div className="col-md-9 col-sm-12 col-xs-12">
                             <div className="menubar-top d-flex justify-content-between align-items-center flex-sm-wrap flex-md-wrap flex-lg-nowrap mt-sm-15">
-                                {/* header phone number */}
+                                {/* Header phone number */}
                                 <div className="header-contact d-flex">
                                     <div className="phone-icon">
                                         <img width={40} height={35} src="assets/images/icon-phone.webp" className="img-fluid" alt="" />
@@ -48,7 +48,7 @@ function header() {
                                         Phone: <span className="number">1-888-123-456-89</span>
                                     </div>
                                 </div>
-                                {/* end of header phone number */}
+                                {/* end of Header phone number */}
                                 {/* search bar */}
                                 <div className="header-advance-search">
                                     <form action="#">
@@ -135,10 +135,10 @@ function header() {
                     </div>
                 </div>
             </div>
-            {/*=======  End of header bottom  =======*/}
+            {/*=======  End of Header bottom  =======*/}
         </header>
 
     )
 }
 
-export default header
+export default Header

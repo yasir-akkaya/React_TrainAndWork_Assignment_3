@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function faq() {
+export default function Faq() {
     return (
         <div className="faq-area page-content mb-50">
             <div className="container">

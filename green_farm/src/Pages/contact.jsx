@@ -1,6 +1,6 @@
 import React from 'react'
 
-function contact() {
+function Contact() {
     return (
         <div className="page-content mb-50">
             <div className="google-map-container mb-70">
@@ -67,4 +67,4 @@ function contact() {
     )
 }
 
-export default contact
+export default Contact

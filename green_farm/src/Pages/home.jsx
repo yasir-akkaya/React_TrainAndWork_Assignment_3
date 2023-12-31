@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function home() {
+function Home({ categories, dealProducts }) {
+    const topFour = dealProducts.filter((item, index) => index < 4);
+    const sixProducts = dealProducts.filter((item, index) => index < 25 && index > 18);
+    const [timeRemaining, setTimeRemaining] = useState(3600); 
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeRemaining(prevTime => {
+                if (prevTime === 0) {
+                    clearInterval(timer);
+                }
+                return prevTime - 1;
+            });
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, []);
+    const hours = Math.floor(timeRemaining / 3600);
+    const minutes = Math.floor((timeRemaining % 3600) / 60);
+    const seconds = timeRemaining % 60;
+
+
+
+
     return (
         <div>
             <div className="slider category-slider mb-35">
@@ -16,78 +39,20 @@ function home() {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="category-slider-container">
-                                <div className="single-category col-2 float-start">
-                                    <div className="category-image">
-                                        <Link to="shop-list" title="Vegetables">
-                                            <img width={121} height={121} src="assets/images/categories/category1.webp" className="img-fluid" alt="" />
-                                        </Link>
+                                {categories.map(category => (
+                                    <div className="single-category col-2 float-start">
+                                        <div className="category-image">
+                                            <Link to="shop-list" title="Vegetables">
+                                                <img width={121} height={121} src={category.image_slug} className="img-fluid rounded-circle" alt="" />
+                                            </Link>
+                                        </div>
+                                        <div className="category-title">
+                                            <h3>
+                                                <Link to="shop-list"> {category.title}</Link>
+                                            </h3>
+                                        </div>
                                     </div>
-                                    <div className="category-title">
-                                        <h3>
-                                            <Link to="shop-list"> Vegetables</Link>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="single-category col-2 float-start">
-                                    <div className="category-image">
-                                        <Link to="shop-list" title="Fast Food">
-                                            <img width={121} height={121} src="assets/images/categories/category2.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                    </div>
-                                    <div className="category-title">
-                                        <h3>
-                                            <Link to="shop-list"> Fast Food</Link>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="single-category col-2 float-start">
-                                    <div className="category-image">
-                                        <Link to="shop-list" title="Fish & Meats">
-                                            <img width={121} height={121} src="assets/images/categories/category3.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                    </div>
-                                    <div className="category-title">
-                                        <h3>
-                                            <Link to="shop-list"> Fish &amp; Meats</Link>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="single-category col-2 float-start">
-                                    <div className="category-image">
-                                        <Link to="shop-list" title="Fruits">
-                                            <img width={121} height={121} src="assets/images/categories/category4.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                    </div>
-                                    <div className="category-title">
-                                        <h3>
-                                            <Link to="shop-list"> Fruits</Link>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="single-category col-2 float-start">
-                                    <div className="category-image">
-                                        <Link to="shop-list" title="Salads">
-                                            <img width={121} height={121} src="assets/images/categories/category5.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                    </div>
-                                    <div className="category-title">
-                                        <h3>
-                                            <Link to="shop-list"> Salads</Link>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <div className="single-category col-2 float-start">
-                                    <div className="category-image">
-                                        <Link to="shop-list" title="Bread">
-                                            <img width={121} height={121} src="assets/images/categories/category6.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                    </div>
-                                    <div className="category-title">
-                                        <h3>
-                                            <Link to="shop-list"> Bread</Link>
-                                        </h3>
-                                    </div>
-                                </div>
+                                ))}
 
                             </div>
                         </div>
@@ -122,48 +87,16 @@ function home() {
                         <div className="col-lg-12">
                             <div className="gallery-product-container">
                                 <div className="row no-gutters">
-                                    <div className="col-lg-4 col-sm-6">
-                                        <div className="single-featured-product">
-                                            <Link to="single-product">
-                                                <img width={390} height={229} src="assets/images/product-banners/fullbanner-1.webp" className="img-fluid" alt="" />
-                                            </Link>
+                                    {sixProducts.map(item => (
+                                        <div className="col-lg-4 col-sm-6">
+                                            <div className="single-featured-product">
+                                                <Link to="single-product">
+                                                    <img width={350} height={350} src={item.image} className="img-fluid" alt="" />
+                                                </Link>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="col-lg-4 col-sm-6">
-                                        <div className="single-featured-product">
-                                            <Link to="single-product">
-                                                <img width={390} height={229} src="assets/images/product-banners/fullbanner-2.webp" className="img-fluid" alt="" />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-sm-6">
-                                        <div className="single-featured-product">
-                                            <Link to="single-product">
-                                                <img width={390} height={229} src="assets/images/product-banners/fullbanner-3.webp" className="img-fluid" alt="" />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-sm-6">
-                                        <div className="single-featured-product">
-                                            <Link to="single-product">
-                                                <img width={390} height={229} src="assets/images/product-banners/fullbanner-4.webp" className="img-fluid" alt="" />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-sm-6">
-                                        <div className="single-featured-product">
-                                            <Link to="single-product">
-                                                <img width={390} height={229} src="assets/images/product-banners/fullbanner-5.webp" className="img-fluid" alt="" />
-                                            </Link>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-sm-6">
-                                        <div className="single-featured-product">
-                                            <Link to="single-product">
-                                                <img width={390} height={229} src="assets/images/product-banners/fullbanner-6.webp" className="img-fluid" alt="" />
-                                            </Link>
-                                        </div>
-                                    </div>
+                                    ))}
+
                                 </div>
                             </div>
                         </div>
@@ -182,109 +115,41 @@ function home() {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="multisale-slider-wrapper">
-                                <div className="gf-product multisale-slider-product col-3 float-start">
-                                    <div className="image">
-                                        <Link to="single-product">
-                                            <span className="onsale">Sale!</span>
-                                            <img width={350} height={350} src="assets/images/products/product01.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                        <div className="product-hover-icons">
-                                            <Link to="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></Link>
-                                            <Link to="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" /> </Link>
+                                {/* Başla */}
+                                {topFour.map(product => (
+                                    <div className="gf-product multisale-slider-product col-3 float-start" key={product.id}>
+                                        <div className="image">
+                                            <Link to="single-product">
+                                                <span className="onsale">Sale!</span>
+                                                <img width={350} height={350} src={product.image} className="img-fluid" alt="" />
+                                            </Link>
+                                            <div className="product-hover-icons">
+                                                <Link to="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></Link>
+                                                <Link to="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" /> </Link>
+                                            </div>
+                                        </div>
+                                        <div className="product-countdown" data-countdown="2023/05/01" />
+                                        <div className="product-content">
+                                            <h3 className="product-title"><Link to="single-product">{product.title}</Link></h3>
+                                            <div className="price-box">
+                                                <span className="main-price">$ {product.price * 1.5}</span>
+                                                <span className="discounted-price">$ {product.price}</span>
+                                            </div>
+                                        </div>
+                                        <div className="container mt-5">
+                                            <div className="text-center bg-success">
+                                                <h4 className='text-light'>{`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`}</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="product-countdown" data-countdown="2023/05/01" />
-                                    <div className="product-content">
-                                        <div className="product-categories">
-                                            <Link to="shop-list">Fast Foods</Link>,
-                                            <Link to="shop-list">Vegetables</Link>
-                                        </div>
-                                        <h3 className="product-title"><Link to="single-product">Ornare sed consequat nisl eget</Link></h3>
-                                        <div className="price-box">
-                                            <span className="main-price">$89.00</span>
-                                            <span className="discounted-price">$80.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gf-product multisale-slider-product col-3 float-start">
-                                    <div className="image">
-                                        <Link to="single-product">
-                                            <span className="onsale">Sale!</span>
-                                            <img width={350} height={350} src="assets/images/products/product02.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                        <div className="product-hover-icons">
-                                            <Link to="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></Link>
-                                            <Link to="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" /> </Link>
-                                        </div>
-                                    </div>
-                                    <div className="product-countdown" data-countdown="2023/02/01" />
-                                    <div className="product-content">
-                                        <div className="product-categories">
-                                            <Link to="shop-list">Fast Foods</Link>,
-                                            <Link to="shop-list">Vegetables</Link>
-                                        </div>
-                                        <h3 className="product-title"><Link to="single-product">Ornare sed consequat nisl eget</Link></h3>
-                                        <div className="price-box">
-                                            <span className="main-price">$89.00</span>
-                                            <span className="discounted-price">$80.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="gf-product multisale-slider-product col-3 float-start">
-                                    <div className="image">
-                                        <Link to="single-product">
-                                            <span className="onsale">Sale!</span>
-                                            <img width={350} height={350} src="assets/images/products/product04.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                        <div className="product-hover-icons">
-                                            <Link to="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></Link>
-                                            <Link to="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" /> </Link>
-                                        </div>
-                                    </div>
-                                    <div className="product-countdown" data-countdown="2023/05/21" />
-                                    <div className="product-content">
-                                        <div className="product-categories">
-                                            <Link to="shop-list">Fast Foods</Link>,
-                                            <Link to="shop-list">Vegetables</Link>
-                                        </div>
-                                        <h3 className="product-title"><Link to="single-product">Ornare sed consequat nisl eget</Link></h3>
-                                        <div className="price-box">
-                                            <span className="main-price">$89.00</span>
-                                            <span className="discounted-price">$80.00</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="gf-product multisale-slider-product col-3 float-start">
-                                    <div className="image">
-                                        <Link to="single-product">
-                                            <span className="onsale">Sale!</span>
-                                            <img width={350} height={350} src="assets/images/products/product05.webp" className="img-fluid" alt="" />
-                                        </Link>
-                                        <div className="product-hover-icons">
-                                            <Link to="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></Link>
-                                            <Link to="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" /> </Link>
-                                        </div>
-                                    </div>
-                                    <div className="product-countdown" data-countdown="2022/01/10" />
-                                    <div className="product-content">
-                                        <div className="product-categories">
-                                            <Link to="shop-list">Fast Foods</Link>,
-                                            <Link to="shop-list">Vegetables</Link>
-                                        </div>
-                                        <h3 className="product-title"><Link to="single-product">Ornare sed consequat nisl eget</Link></h3>
-                                        <div className="price-box">
-                                            <span className="main-price">$89.00</span>
-                                            <span className="discounted-price">$80.00</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
+                                {/* bitir */}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="tripple-banner-section mb-35">
+            <div className="tripple-banner-section mb-35 mt-35">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4 col-md-4 col-sm-12 mb-xs-35">
@@ -378,4 +243,4 @@ function home() {
     )
 }
 
-export default home
+export default Home

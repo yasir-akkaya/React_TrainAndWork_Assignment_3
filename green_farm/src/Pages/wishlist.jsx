@@ -1,6 +1,6 @@
 import React from 'react'
 
-function wishlist() {
+function Wishlist() {
   return (
     <div className="page-section section mb-50">
   <div className="container">
@@ -74,4 +74,4 @@ function wishlist() {
   )
 }
 
-export default wishlist
+export default Wishlist

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function cart() {
+function Cart() {
     return (
         <div>
             <div className="page-section section mb-50">
@@ -8,7 +8,7 @@ function cart() {
                     <div className="row">
                         <div className="col-12">
                             <form action="#">
-                                {/*=======  cart table  =======*/}
+                                {/*=======  Cart table  =======*/}
                                 <div className="cart-table table-responsive mb-40">
                                     <table className="table">
                                         <thead>
@@ -65,7 +65,7 @@ function cart() {
                                         </tbody>
                                     </table>
                                 </div>
-                                {/*=======  End of cart table  =======*/}
+                                {/*=======  End of Cart table  =======*/}
                             </form>
                             <div className="row">
                                 <div className="col-lg-6 col-12">
@@ -148,4 +148,4 @@ function cart() {
     )
 }
 
-export default cart
+export default Cart

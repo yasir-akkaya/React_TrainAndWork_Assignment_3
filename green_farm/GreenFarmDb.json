@@ -2,33 +2,39 @@
   "Categories": [
     {
       "id": 1,
-      "title": "Fruits and Vegetables",
-      "desc": "Fresh and organic fruit and vegetable products",
-      "image_slug": "fruits-vegetables-image"
+      "title": "Fruits",
+      "desc": "Fresh and organic fruit products",
+      "image_slug": "https://source.unsplash.com/random/120x120/?fruit"
     },
     {
       "id": 2,
       "title": "Meat and Fish",
       "desc": "Fresh meat and seafood products",
-      "image_slug": "meat-fish-image"
+      "image_slug": "https://source.unsplash.com/random/120x120/?meat"
     },
     {
       "id": 3,
       "title": "Dairy and Dairy Products",
       "desc": "Fresh milk, cheese, yogurt, etc.",
-      "image_slug": "dairy-products-image"
+      "image_slug": "https://source.unsplash.com/random/120x120/?cheese"
     },
     {
       "id": 4,
       "title": "Bakery Products",
       "desc": "Fresh bread, pastries, and bakery items",
-      "image_slug": "baked-goods-image"
+      "image_slug": "https://source.unsplash.com/random/120x120/?bakery"
     },
     {
       "id": 5,
       "title": "Dry Goods",
       "desc": "Legumes, pasta, rice, etc.",
-      "image_slug": "dry-goods-image"
+      "image_slug": "https://source.unsplash.com/random/120x120/?pasta"
+    },
+    {
+      "id": 6,
+      "title": "Vegetables",
+      "desc": "Fresh and organic vegetable products",
+      "image_slug": "https://source.unsplash.com/random/120x120/?vegetable"
     }
   ],
   "Products": [
@@ -36,10 +42,10 @@
       "id": 1,
       "title": "Organic Apple",
       "categoryid": 1,
-      "image": "https://source.unsplash.com/random/350x350/?OrganicApple",
+      "image": "https://source.unsplash.com/random/350x350/?Apple",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?OrganicApple",
-        "https://source.unsplash.com/random/350x350/?OrganicApple"
+        "https://source.unsplash.com/random/350x350/?Apple",
+        "https://source.unsplash.com/random/350x350/?Apple"
       ],
       "price": 5.99,
       "date": "2023-01-01"
@@ -48,10 +54,10 @@
       "id": 2,
       "title": "Organic Tomato",
       "categoryid": 1,
-      "image": "https://source.unsplash.com/random/350x350/?OrganicTomato",
+      "image": "https://source.unsplash.com/random/350x350/?Tomato",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?OrganicTomato",
-        "https://source.unsplash.com/random/350x350/?OrganicTomato"
+        "https://source.unsplash.com/random/350x350/?Tomato",
+        "https://source.unsplash.com/random/350x350/?Tomato"
       ],
       "price": 3.99,
       "date": "2023-01-02"
@@ -60,10 +66,10 @@
       "id": 3,
       "title": "Salmon Fillet",
       "categoryid": 2,
-      "image": "https://source.unsplash.com/random/350x350/?SalmonFillet",
+      "image": "https://source.unsplash.com/random/350x350/?Salmon",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?SalmonFillet",
-        "https://source.unsplash.com/random/350x350/?SalmonFillet"
+        "https://source.unsplash.com/random/350x350/?Salmon",
+        "https://source.unsplash.com/random/350x350/?Salmon"
       ],
       "price": 15.99,
       "date": "2023-01-03"
@@ -72,10 +78,10 @@
       "id": 4,
       "title": "Greek Yogurt",
       "categoryid": 3,
-      "image": "https://source.unsplash.com/random/350x350/?GreekYogurt",
+      "image": "https://source.unsplash.com/random/350x350/?Yogurt",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?GreekYogurt",
-        "https://source.unsplash.com/random/350x350/?GreekYogurt"
+        "https://source.unsplash.com/random/350x350/?Yogurt",
+        "https://source.unsplash.com/random/350x350/?Yogurt"
       ],
       "price": 4.99,
       "date": "2023-01-04"
@@ -204,10 +210,10 @@
       "id": 15,
       "title": "Salad Mix",
       "categoryid": 1,
-      "image": "https://source.unsplash.com/random/350x350/?SaladMix",
+      "image": "https://source.unsplash.com/random/350x350/?Salad",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?SaladMix",
-        "https://source.unsplash.com/random/350x350/?SaladMix"
+        "https://source.unsplash.com/random/350x350/?Salad",
+        "https://source.unsplash.com/random/350x350/?Salad"
       ],
       "price": 6.99,
       "date": "2023-01-15"
@@ -216,10 +222,10 @@
       "id": 16,
       "title": "Fresh Salmon",
       "categoryid": 2,
-      "image": "https://source.unsplash.com/random/350x350/?FreshSalmon",
+      "image": "https://source.unsplash.com/random/350x350/?Salmon",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?FreshSalmon",
-        "https://source.unsplash.com/random/350x350/?FreshSalmon"
+        "https://source.unsplash.com/random/350x350/?Salmon",
+        "https://source.unsplash.com/random/350x350/?Salmon"
       ],
       "price": 12.99,
       "date": "2023-01-16"
@@ -252,10 +258,10 @@
       "id": 19,
       "title": "Whole Wheat Bread",
       "categoryid": 4,
-      "image": "https://source.unsplash.com/random/350x350/?WholeWheatBread",
+      "image": "https://source.unsplash.com/random/350x350/?Bread",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?WholeWheatBread",
-        "https://source.unsplash.com/random/350x350/?WholeWheatBread"
+        "https://source.unsplash.com/random/350x350/?Bread",
+        "https://source.unsplash.com/random/350x350/?Bread"
       ],
       "price": 3.49,
       "date": "2023-01-19"
@@ -300,10 +306,10 @@
       "id": 23,
       "title": "Ground Beef",
       "categoryid": 2,
-      "image": "https://source.unsplash.com/random/350x350/?GroundBeef",
+      "image": "https://source.unsplash.com/random/350x350/?Beef",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?GroundBeef",
-        "https://source.unsplash.com/random/350x350/?GroundBeef"
+        "https://source.unsplash.com/random/350x350/?Beef",
+        "https://source.unsplash.com/random/350x350/?Beef"
       ],
       "price": 9.99,
       "date": "2023-01-23"
@@ -312,10 +318,10 @@
       "id": 24,
       "title": "Vanilla Yogurt",
       "categoryid": 3,
-      "image": "https://source.unsplash.com/random/350x350/?VanillaYogurt",
+      "image": "https://source.unsplash.com/random/350x350/?Yogurt",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?VanillaYogurt",
-        "https://source.unsplash.com/random/350x350/?VanillaYogurt"
+        "https://source.unsplash.com/random/350x350/?Yogurt",
+        "https://source.unsplash.com/random/350x350/?Yogurt"
       ],
       "price": 3.99,
       "date": "2023-01-24"
@@ -348,10 +354,10 @@
       "id": 27,
       "title": "Salmon Sushi",
       "categoryid": 2,
-      "image": "https://source.unsplash.com/random/350x350/?SalmonSushi",
+      "image": "https://source.unsplash.com/random/350x350/?Sushi",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?SalmonSushi",
-        "https://source.unsplash.com/random/350x350/?SalmonSushi"
+        "https://source.unsplash.com/random/350x350/?Sushi",
+        "https://source.unsplash.com/random/350x350/?Sushi"
       ],
       "price": 14.99,
       "date": "2023-01-27"
@@ -432,10 +438,10 @@
       "id": 34,
       "title": "Baguette with Seeds",
       "categoryid": 4,
-      "image": "https://source.unsplash.com/random/350x350/?BaguettewithSeeds",
+      "image": "https://source.unsplash.com/random/350x350/?Baguettew",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?BaguettewithSeeds",
-        "https://source.unsplash.com/random/350x350/?BaguettewithSeeds"
+        "https://source.unsplash.com/random/350x350/?Baguettew",
+        "https://source.unsplash.com/random/350x350/?Baguettew"
       ],
       "price": 2.99,
       "date": "2023-01-34"
@@ -444,10 +450,10 @@
       "id": 35,
       "title": "Quinoa Salad",
       "categoryid": 5,
-      "image": "https://source.unsplash.com/random/350x350/?QuinoaSalad",
+      "image": "https://source.unsplash.com/random/350x350/?Salad",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?QuinoaSalad",
-        "https://source.unsplash.com/random/350x350/?QuinoaSalad"
+        "https://source.unsplash.com/random/350x350/?Salad",
+        "https://source.unsplash.com/random/350x350/?Salad"
       ],
       "price": 7.49,
       "date": "2023-01-35"
@@ -480,10 +486,10 @@
       "id": 38,
       "title": "Coconut Milk",
       "categoryid": 3,
-      "image": "https://source.unsplash.com/random/350x350/?CoconutMilk",
+      "image": "https://source.unsplash.com/random/350x350/?Coconut",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?CoconutMilk",
-        "https://source.unsplash.com/random/350x350/?CoconutMilk"
+        "https://source.unsplash.com/random/350x350/?Coconut",
+        "https://source.unsplash.com/random/350x350/?Coconut"
       ],
       "price": 4.99,
       "date": "2023-01-38"
@@ -492,10 +498,10 @@
       "id": 39,
       "title": "Multigrain Bread",
       "categoryid": 4,
-      "image": "https://source.unsplash.com/random/350x350/?MultigrainBread",
+      "image": "https://source.unsplash.com/random/350x350/?Bread",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?MultigrainBread",
-        "https://source.unsplash.com/random/350x350/?MultigrainBread"
+        "https://source.unsplash.com/random/350x350/?Bread",
+        "https://source.unsplash.com/random/350x350/?Bread"
       ],
       "price": 3.49,
       "date": "2023-01-39"
@@ -504,10 +510,10 @@
       "id": 40,
       "title": "Wild Rice",
       "categoryid": 5,
-      "image": "https://source.unsplash.com/random/350x350/?WildRice",
+      "image": "https://source.unsplash.com/random/350x350/?Rice",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?WildRice",
-        "https://source.unsplash.com/random/350x350/?WildRice"
+        "https://source.unsplash.com/random/350x350/?Rice",
+        "https://source.unsplash.com/random/350x350/?Rice"
       ],
       "price": 5.99,
       "date": "2023-01-40"
@@ -535,7 +541,7 @@
     {
       "name": "Hakan Deneme",
       "email": "deneme@deneme.com",
-      "password": "1907",
+      "password": "1234",
       "id": 4
     }
   ],
@@ -555,7 +561,7 @@
       "title": "Fresh Produce Insights",
       "short_desc": "Explore the world of fresh produce",
       "long_desc": "Discover the benefits of consuming fresh fruits and vegetables. Get insights into the nutritional value and seasonal delights.",
-      "image": "fresh-produce-blog-image.jpg",
+      "image": "https://source.unsplash.com/random/1200x800/?Fresh",
       "date": "2023-01-03"
     },
     {
@@ -563,7 +569,7 @@
       "title": "Cooking with Nature's Bounty",
       "short_desc": "Delicious recipes for your kitchen",
       "long_desc": "Dive into a culinary journey with our curated recipes using the freshest ingredients from our online store. From hearty soups to refreshing salads, elevate your cooking experience.",
-      "image": "cooking-blog-image.jpg",
+      "image": "https://source.unsplash.com/random/1200x800/?Cook",
       "date": "2023-01-04"
     },
     {
@@ -571,7 +577,7 @@
       "title": "Organic Living Tips",
       "short_desc": "Embrace a healthy and sustainable lifestyle",
       "long_desc": "Learn about the benefits of choosing organic products for a healthier lifestyle. Explore eco-friendly practices and tips for sustainable living.",
-      "image": "organic-living-blog-image.jpg",
+      "image": "https://source.unsplash.com/random/1200x800/?Organic",
       "date": "2023-01-06"
     },
     {
@@ -579,7 +585,7 @@
       "title": "Seasonal Delights Showcase",
       "short_desc": "Discover seasonal treasures in our store",
       "long_desc": "Stay updated on the latest seasonal offerings in our online grocery store. From festive fruits to holiday-inspired recipes, find everything you need to celebrate each season.",
-      "image": "seasonal-delights-blog-image.jpg",
+      "image": "https://source.unsplash.com/random/1200x800/?fruitsalad",
       "date": "2023-01-08"
     },
     {
@@ -587,7 +593,7 @@
       "title": "Health and Wellness Corner",
       "short_desc": "Tips for a balanced lifestyle",
       "long_desc": "Explore ways to maintain a healthy and balanced lifestyle with our expert tips. From nutritious snack ideas to simple exercises, prioritize your well-being.",
-      "image": "health-wellness-blog-image.jpg",
+      "image": "https://source.unsplash.com/random/1200x800/?grocery",
       "date": "2023-01-10"
     },
     {
@@ -595,7 +601,7 @@
       "title": "Gourmet Discoveries",
       "short_desc": "Indulge in culinary excellence",
       "long_desc": "Uncover the world of gourmet foods available in our store. From exotic cheeses to rare spices, elevate your taste buds with our premium selection.",
-      "image": "gourmet-discoveries-blog-image.jpg",
+      "image": "https://source.unsplash.com/random/1200x800/?gourmet",
       "date": "2023-01-12"
     },
     {
@@ -603,7 +609,7 @@
       "title": "DIY Home Garden Tips",
       "short_desc": "Cultivate your own produce at home",
       "long_desc": "Learn how to start and maintain a thriving home garden. From growing herbs in your kitchen to cultivating balcony vegetables, discover the joys of home gardening.",
-      "image": "home-garden-blog-image.jpg",
+      "image": "https://source.unsplash.com/random/1200x800/?homegarden",
       "date": "2023-01-15"
     },
     {
@@ -611,7 +617,7 @@
       "title": "Budget-Friendly Meal Planning",
       "short_desc": "Savor great taste without breaking the bank",
       "long_desc": "Explore our tips and tricks for budget-friendly meal planning. Discover affordable yet delicious recipes to feed your family without compromising on taste.",
-      "image": "budget-meal-blog-image.jpg",
+      "image": "https://source.unsplash.com/random/1200x800/?healthyfood",
       "date": "2023-01-18"
     }
   ],

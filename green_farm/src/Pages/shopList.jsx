@@ -1,6 +1,6 @@
 import React from 'react'
 
-function shopList() {
+function ShopList() {
   return (
     <div className="shop-page-container mb-50">
   <div className="container">
@@ -728,4 +728,4 @@ function shopList() {
   )
 }
 
-export default shopList
+export default ShopList

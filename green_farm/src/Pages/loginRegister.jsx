@@ -32,10 +32,8 @@ function LoginRegister() {
             setLoggedInUser(null);
             setMessage("Sign up to start shopping!");
         }
-
     }
-
-    
+ 
     const handleInputChange = (e) => {
         setUserRegister({ ...userRegister, [e.target.name]: e.target.value });
     };

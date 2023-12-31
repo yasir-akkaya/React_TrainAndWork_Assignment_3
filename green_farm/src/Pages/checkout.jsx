@@ -1,6 +1,6 @@
 import React from 'react'
 
-function checkout() {
+function Checkout() {
     return (
         <div className="page-section section mb-50">
             <div className="container">
@@ -198,4 +198,4 @@ function checkout() {
     )
 }
 
-export default checkout
+export default Checkout

@@ -1,6 +1,15 @@
 import React from 'react'
+import { Link, useParams } from 'react-router-dom'
 
-function singleBlog() {
+function SingleBlog({ blogs }) {
+    const { blogId } = useParams();
+    const blog = blogs.find(blog => blog.id === parseInt(blogId));
+
+    if (!blog) {
+        return <div>Blog not found</div>;
+    }
+
+
     return (
         <div className="blog-page-container mb-50">
             <div className="container">
@@ -9,28 +18,20 @@ function singleBlog() {
                     </div>
                     <div className="col-lg-12 order-1 mb-sm-35 mb-xs-35">
                         <div className="blog-single-post-container mb-50">
-                            <h3 className="post-title">Blog post image format</h3>
+                            <h3 className="post-title">{blog.title}</h3>
                             <div className="post-meta">
-                                <p> <span><i className="fa fa-calendar" /> Posted On: <a href="#">24 August, 2022</a></span></p>
+                                <p> <span><i className="fa fa-calendar" /> Posted On: <a href="#">{blog.date}</a></span></p>
                             </div>
                             <div className="single-blog-post-media mb-xs-20">
                                 <div className="image">
-                                    <img width={1170} height={810} src="assets/images/single-post-image/blog01.webp" className="img-fluid" alt="" />
+                                    <img width={1170} height={810} src={blog.image} className="img-fluid" alt="" />
                                 </div>
-                               
+
                             </div>
                             <div className="post-content mb-40">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum deleniti repellendus
-                                    nam deserunt vitae ullam amet quos! Nesciunt, quo. Lorem, ipsum dolor. Lorem ipsum dolor
-                                    sit amet consectetur adipisicing elit. Quod, vitae numquam! Vitae alias ullam
-                                    voluptatibus asperiores fugit ea soluta consectetur adipisci enim, impedit odit
-                                    quisquam, ut, numquam voluptatem quas cum!</p>
+                                <p>{blog.short_desc}</p>
                                 <blockquote>
-                                    <p>ipsum deleniti repellendus nam deserunt vitae ullam amet quos! Nesciunt, quo. Lorem,
-                                        ipsum dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, vitae
-                                        numquam! VitaeLorem ipsum dolor sit amet consectetur adipisicing elit. Sed, ipsum
-                                        deleniti repellendus nam deserunt vitae ullam amet quos! Nesciunt, quo. Lorem, ipsum
-                                        dolor.</p>
+                                    <p>{blog.long_desc}</p>
                                 </blockquote>
                                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, vitae numquam! Vitae
                                     alias ullam voluptatibus asperiores fugit ea soluta consectetur adipisci enim, impedit
@@ -49,7 +50,7 @@ function singleBlog() {
                                     ea soluta consectetur adipisci enim, impedit odit quisquam, ut, numquam voluptatem quas
                                     cum!</p>
                             </div>
-                            
+
                             <div className="social-share-buttons mb-40">
                                 <h3>share this product</h3>
                                 <ul>
@@ -70,14 +71,14 @@ function singleBlog() {
                                     <div className="col-lg-4 col-md-4 mb-xs-20">
                                         <div className="single-related-post">
                                             <div className="image">
-                                                <a href="blog-post-image-format.html">
-                                                    <img width={500} height={300} src="assets/images/blog-image/blog01.webp" className="img-fluid" alt="" />
-                                                </a>
+                                                <Link to="/blogs">
+                                                    <img width={500} height={300} src="https://source.unsplash.com/random/1200x800/?Organic" className="img-fluid" alt="" />
+                                                </Link>
                                             </div>
                                             <div className="content">
                                                 <h3 className="related-post-title">
-                                                    <a href="blog-post-image-format.html">Blog image post</a>
-                                                    <span>April 24, 2022</span>
+                                                    <Link to="/blogs">Organic Living Tips</Link>
+                                                    <span>2023-01-06</span>
                                                 </h3>
                                             </div>
                                         </div>
@@ -85,14 +86,14 @@ function singleBlog() {
                                     <div className="col-lg-4 col-md-4 mb-xs-20">
                                         <div className="single-related-post">
                                             <div className="image">
-                                                <a href="blog-post-image-format.html">
-                                                    <img width={500} height={300} src="assets/images/blog-image/blog01.webp" className="img-fluid" alt="" />
-                                                </a>
+                                                <Link to="/blogs">
+                                                    <img width={500} height={300} src="https://source.unsplash.com/random/1200x800/?fruitsalad" className="img-fluid" alt="" />
+                                                </Link>
                                             </div>
                                             <div className="content">
                                                 <h3 className="related-post-title">
-                                                    <a href="blog-post-image-format.html">Blog image post</a>
-                                                    <span>April 24, 2022</span>
+                                                    <Link to="/blogs">Seasonal Delights Showcase</Link>
+                                                    <span>2023-01-08</span>
                                                 </h3>
                                             </div>
                                         </div>
@@ -100,14 +101,14 @@ function singleBlog() {
                                     <div className="col-lg-4 col-md-4 mb-xs-20">
                                         <div className="single-related-post">
                                             <div className="image">
-                                                <a href="blog-post-image-format.html">
-                                                    <img width={500} height={300} src="assets/images/blog-image/blog01.webp" className="img-fluid" alt="" />
-                                                </a>
+                                                <Link to="/blogs">
+                                                    <img width={500} height={300} src="https://source.unsplash.com/random/1200x800/?Fresh" className="img-fluid" alt="" />
+                                                </Link>
                                             </div>
                                             <div className="content">
                                                 <h3 className="related-post-title">
-                                                    <a href="blog-post-image-format.html">Blog image post</a>
-                                                    <span>April 24, 2022</span>
+                                                    <Link to="/blogs">Fresh Produce Insights</Link>
+                                                    <span>2023-01-03</span>
                                                 </h3>
                                             </div>
                                         </div>
@@ -123,4 +124,4 @@ function singleBlog() {
     )
 }
 
-export default singleBlog
+export default SingleBlog

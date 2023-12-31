@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function footer() {
+function Footer() {
     return (
         <footer>
 
@@ -68,10 +68,10 @@ function footer() {
                 </div>
             </div>
             {/*=======  End of social contact section  =======*/}
-            {/*=======  footer navigation  =======*/}
+            {/*=======  Footer navigation  =======*/}
         </footer>
 
     )
 }
 
-export default footer
+export default Footer
