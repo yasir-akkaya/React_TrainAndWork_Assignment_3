@@ -18,48 +18,20 @@ function Contact() {
                                 <p>123 Main Street, Anytown, CA 12345 – USA</p>
                             </div>
                             
-                            <div className="single-contact-block">
+                            <div className="single-contact-block float-start">
                                 <h4><img width={36} height={40} src="assets/images/icons/contact-icon2.webp" alt="" /> Phone</h4>
                                 <p>Mobile: (08) 123 456 789</p>
                                 <p>Hotline: 1009 678 456</p>
                             </div>
                            
-                            <div className="single-contact-block">
+                            <div className="single-contact-block float-start">
                                 <h4><img width={38} height={42} src="assets/images/icons/contact-icon3.webp" alt="" /> Email</h4>
                                 <p>yourmail@domain.com</p>
                                 <p>support@hastech.company</p>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-9 col-md-8 pl-100 pl-xs-15">
-                        <div className="contact-form-content">
-                            <h3 className="contact-page-title">Tell Us Your Message</h3>
-                            <div className="contact-form">
-                                <form id="contact-form" action="https://htmldemo.net/greenfarm/greenfarm/assets/php/mail.php" method="post">
-                                    <div className="form-group">
-                                        <label>Your Name <span className="required">*</span></label>
-                                        <input type="text" name="customerName" id="customername" required />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Your Email <span className="required">*</span></label>
-                                        <input type="email" name="customerEmail" id="customerEmail" required />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Subject</label>
-                                        <input type="text" name="contactSubject" id="contactSubject" />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Your Message</label>
-                                        <textarea name="contactMessage" id="contactMessage" defaultValue={""} />
-                                    </div>
-                                    <div className="form-group">
-                                        <button type="submit" value="submit" id="submit" className="contact-form-btn" name="submit">send</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <p className="form-messege pt-10 pb-10 mt-10 mb-10" />
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

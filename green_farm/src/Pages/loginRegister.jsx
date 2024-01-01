@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/slices/UserSlice";
 
 function LoginRegister() {
+
+    const dispatch = useDispatch();
+
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [loggedInUser, setLoggedInUser] = useState(null);
     const [message, setMessage] = useState('');
     const [_message, _setMessage] = useState('');
+
     const [userRegister, setUserRegister] = useState({
         name: '',
         email: '',
@@ -17,23 +24,23 @@ function LoginRegister() {
         const response = await fetch('http://localhost:3000/Users');
         const data = await response.json();
         const user = await data.find(u => u.email === String(email) && u.password === String(password));
-
         if (user) {
-            console.log("alinan kullanıcı       " + user.id)
+            console.log("alinan kullanıcı  " + user.id)
             const handleLogin = (user) => {
                 console.log("kontrol geçildi")
-                setLoggedInUser(user);
                 console.log("giriş yapan kullanıcı" + loggedInUser);
                 setMessage("Login successfully!")
             };
             handleLogin();
+            dispatch(addUser(user));
         }
         else {
             setLoggedInUser(null);
             setMessage("Sign up to start shopping!");
         }
     }
- 
+
+
     const handleInputChange = (e) => {
         setUserRegister({ ...userRegister, [e.target.name]: e.target.value });
     };
@@ -74,6 +81,7 @@ function LoginRegister() {
                             <h4 className="login-title">Login</h4>
                             <div className="row">
                                 <div className="col-md-12 col-12 mb-20">
+                                    <p className='fst-italic' > *Email: yasir@akkaya.com / Password: 1907</p>
                                     <label>Email Address*</label>
                                     <input className="mb-0" type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} />
                                 </div>
@@ -112,13 +120,13 @@ function LoginRegister() {
                                 </div>
                                 <div className="col-md-6 mb-20">
                                     <label>Password</label>
-                                    <input className="mb-0" type="password" name="password" placeholder="Password" value={userRegister.password} onChange={handleInputChange}  />
+                                    <input className="mb-0" type="password" name="password" placeholder="Password" value={userRegister.password} onChange={handleInputChange} />
                                 </div>
                                 <div className="col-12">
                                     <p className='text-success'>{_message}</p>
                                 </div>
                                 <div className="col-12">
-                                    <button onClick={()=>handleRegister()} className="register-button mt-0">Register</button>
+                                    <button onClick={() => handleRegister()} className="register-button mt-0">Register</button>
                                 </div>
                             </div>
                         </div>

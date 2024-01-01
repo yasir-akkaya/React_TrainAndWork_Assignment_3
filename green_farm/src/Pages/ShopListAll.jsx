@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 function ShopList() {
 
   const listedItems = useSelector((state) => state.CommerceSlice.filteredProducts);
 
-  
   return (
     <div className="shop-page-container mb-50">
       <div className="container">

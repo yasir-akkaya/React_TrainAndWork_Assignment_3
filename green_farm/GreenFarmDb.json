@@ -53,7 +53,7 @@
     {
       "id": 2,
       "title": "Organic Tomato",
-      "categoryid": 1,
+      "categoryid": 6,
       "image": "https://source.unsplash.com/random/350x350/?Tomato",
       "gallery": [
         "https://source.unsplash.com/random/350x350/?Tomato",
@@ -114,10 +114,10 @@
       "id": 7,
       "title": "Chicken Breast",
       "categoryid": 2,
-      "image": "https://source.unsplash.com/random/350x350/?ChickenBreast",
+      "image": "https://source.unsplash.com/random/350x350/?Chicken",
       "gallery": [
-        "https://source.unsplash.com/random/350x350/?ChickenBreast",
-        "https://source.unsplash.com/random/350x350/?ChickenBreast"
+        "https://source.unsplash.com/random/350x350/?Chicken",
+        "https://source.unsplash.com/random/350x350/?Chicke"
       ],
       "price": 8.99,
       "date": "2023-01-07"
@@ -209,7 +209,7 @@
     {
       "id": 15,
       "title": "Salad Mix",
-      "categoryid": 1,
+      "categoryid": 6,
       "image": "https://source.unsplash.com/random/350x350/?Salad",
       "gallery": [
         "https://source.unsplash.com/random/350x350/?Salad",
@@ -281,7 +281,7 @@
     {
       "id": 21,
       "title": "Cucumber",
-      "categoryid": 1,
+      "categoryid": 6,
       "image": "https://source.unsplash.com/random/350x350/?Cucumber",
       "gallery": [
         "https://source.unsplash.com/random/350x350/?Cucumber",
@@ -341,7 +341,7 @@
     {
       "id": 26,
       "title": "Spinach",
-      "categoryid": 1,
+      "categoryid": 6,
       "image": "https://source.unsplash.com/random/350x350/?Spinach",
       "gallery": [
         "https://source.unsplash.com/random/350x350/?Spinach",

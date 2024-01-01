@@ -1,10 +1,26 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../redux/slices/UserSlice";
+import { allProducts } from '../redux/slices/CommerceSlice';
 
 function Header() {
+    const dispatch = useDispatch();
+
+    function Logout() {
+        dispatch(logout());
+    }
+
+    const user = useSelector((s) => s.UserSlice.currentUser);
+
+    const all = () => {
+        dispatch(allProducts());
+    };
+
+    
+
     return (
         <header>
-            {/*=======  Header top  =======*/}
             <div className="header-top pt-10 pb-10 pt-lg-10 pb-lg-10 pt-md-10 pb-md-10">
                 <div className="container">
                     <div className="row">
@@ -13,10 +29,19 @@ function Header() {
                             <div className="header-top-menu">
                                 <ul>
                                     <li>
-                                        <Link to="/login-register">Login/Register</Link>
+                                        {user && <p>Welcome <b>{user.name}</b>  !</p>}
                                     </li>
-                                    <li><Link to="wishlist">Wishlist</Link></li>
-                                    <li><Link to="checkout">Checkout</Link></li>
+                                    {user && <li><Link to="wishlist">Wishlist</Link></li>}
+                                    {user != null ?
+                                        (<li>
+                                            <a className='text-danger fw-bold' onClick={() => Logout()}>Logout</a>
+                                        </li>
+                                        )
+                                        :
+                                        <li>
+                                            <Link className='text-success fw-bold' to="/login-register">Login/Register</Link>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -66,48 +91,11 @@ function Header() {
                                         <div className="cart-info d-inline-block">
                                             <p>Shopping Cart
                                                 <span>
-                                                    0 items - $0.00
+                                                   Click here to go Cart!
                                                 </span>
                                             </p>
                                         </div>
                                     </Link>
-                                    {/* end of shopping cart */}
-                                    {/* cart floating box */}
-                                    <div className="cart-floating-box" id="cart-floating-box">
-                                        <div className="cart-items">
-                                            <div className="cart-float-single-item d-flex">
-                                                <span className="remove-item"><Link to="#"><i className="fa fa-times" /></Link></span>
-                                                <div className="cart-float-single-item-image">
-                                                    <Link to="/single-product"><img width={350} height={350} src="assets/images/products/product01.webp" className="img-fluid" alt="" /></Link>
-                                                </div>
-                                                <div className="cart-float-single-item-desc">
-                                                    <p className="product-title"> <Link to="single-product">Duis pulvinar
-                                                        obortis eleifend </Link></p>
-                                                    <p className="price"><span className="count">1x</span> $20.50</p>
-                                                </div>
-                                            </div>
-                                            <div className="cart-float-single-item d-flex">
-                                                <span className="remove-item"><Link to="#"><i className="fa fa-times" /></Link></span>
-                                                <div className="cart-float-single-item-image">
-                                                    <Link to="single-product"><img width={350} height={350} src="assets/images/products/product02.webp" className="img-fluid" alt="" /></Link>
-                                                </div>
-                                                <div className="cart-float-single-item-desc">
-                                                    <p className="product-title"> <Link to="single-product">Fusce ultricies
-                                                        dolor vitae</Link></p>
-                                                    <p className="price"><span className="count">1x</span> $20.50</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="cart-calculation">
-                                            <div className="calculation-details">
-                                                <p className="total">Subtotal <span>$22</span></p>
-                                            </div>
-                                            <div className="floating-cart-btn text-center">
-                                                <Link to="checkout">Checkout</Link>
-                                                <Link to="cart">View Cart</Link>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div className="main-menu">
@@ -117,7 +105,7 @@ function Header() {
                                             <Link to="/">HOME</Link>
                                         </li>
                                         <li className="">
-                                            <Link to="/shop-list">SHOP</Link>
+                                            <Link onClick={() => all()} to="/shop-list/">SHOP</Link>
                                         </li>
                                         <li><Link to="/blogs">BLOGS</Link></li>
                                         <li><Link to="/contact">CONTACT</Link></li>

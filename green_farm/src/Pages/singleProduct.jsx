@@ -1,6 +1,55 @@
 import React from 'react'
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToWishlist,
+  addToCart,
+} from "../redux/slices/CommerceSlice";
+
 
 function SingleProduct() {
+  
+  
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const wishlist = useSelector((s) => s.CommerceSlice.wishlist);
+  const product = useSelector((s) => s.CommerceSlice.products).filter(
+    (i) => i.id == id
+    )[0];
+    const user = useSelector((s) => s.UserSlice.currentUser);
+    const addCart = () => {
+      dispatch(addToCart(product));
+    };
+  const i =
+    user && wishlist.products
+      ? wishlist.products.filter((p) => p.id == product.id)[0]
+      : null;
+  const favorite = () => {
+    if (i) {
+      dispatch(
+        addToWishlist(wishlist.id, {
+          products: wishlist.filter((p) => p.id != product.id),
+          email: user.email,
+        })
+      );
+    } else {
+      console.log(wishlist);
+      dispatch(
+        addToWishlist(
+          wishlist.id,
+          {
+            email: user.email,
+            products: [product],
+          },
+          wishlist.id
+        )
+      );
+    }
+  };
+  const products = useSelector((s) => s.CommerceSlice.filteredProducts);
+  const topFour = products.filter((item, index) => index < 15 && index>10);
+
+
   return (
     <div>
       <div className="single-product-content ">
@@ -15,16 +64,13 @@ function SingleProduct() {
                   <div className="product-small-image-list">
                     <div className="nav small-image-slider-single-product" role="tablist">
                       <div className="single-small-image img-full">
-                        <a data-bs-toggle="tab" id="single-slide-tab-1" href="#single-slide1"><img width={600} height={600} src="assets/images/big-product-image/product04.webp" className="img-fluid" alt="" /></a>
+                        <a data-bs-toggle="tab" id="single-slide-tab-1" href="#single-slide1"><img width={600} height={600} src={product.image} className="img-fluid" alt="" /></a>
                       </div>
                       <div className="single-small-image img-full">
-                        <a data-bs-toggle="tab" id="single-slide-tab-2" href="#single-slide2"><img width={600} height={600} src="assets/images/big-product-image/product05.webp" className="img-fluid" alt="" /></a>
+                        <a data-bs-toggle="tab" id="single-slide-tab-2" href="#single-slide2"><img width={600} height={600} src={product.gallery[0]} className="img-fluid" alt="" /></a>
                       </div>
                       <div className="single-small-image img-full">
-                        <a data-bs-toggle="tab" id="single-slide-tab-3" href="#single-slide3"><img width={600} height={600} src="assets/images/big-product-image/product06.webp" className="img-fluid" alt="" /></a>
-                      </div>
-                      <div className="single-small-image img-full">
-                        <a data-bs-toggle="tab" id="single-slide-tab-4" href="#single-slide4"><img width={600} height={600} src="assets/images/big-product-image/product07.webp" className="img-fluid" alt="" /></a>
+                        <a data-bs-toggle="tab" id="single-slide-tab-3" href="#single-slide3"><img width={600} height={600} src={product.gallery[1]} className="img-fluid" alt="" /></a>
                       </div>
                     </div>
                   </div>
@@ -34,7 +80,7 @@ function SingleProduct() {
                     <div className="tab-pane fade show active" id="single-slide1" role="tabpanel" aria-labelledby="single-slide-tab-1">
                       {/*Single Product Image Start*/}
                       <div className="single-product-img easyzoom img-full">
-                        <img width={600} height={600} src="assets/images/big-product-image/product04.webp" className="img-fluid" alt="" />
+                        <img width={600} height={600} src={product.image} className="img-fluid" alt="" />
                         <a href="assets/images/big-product-image/product04.webp" className="big-image-popup"><i className="fa fa-search-plus" /></a>
                       </div>
                       {/*Single Product Image End*/}
@@ -42,7 +88,7 @@ function SingleProduct() {
                     <div className="tab-pane fade" id="single-slide2" role="tabpanel" aria-labelledby="single-slide-tab-2">
                       {/*Single Product Image Start*/}
                       <div className="single-product-img easyzoom img-full">
-                        <img width={600} height={600} src="assets/images/big-product-image/product05.webp" className="img-fluid" alt="" />
+                        <img width={600} height={600} src={product.gallery[0]} className="img-fluid" alt="" />
                         <a href="assets/images/big-product-image/product05.webp" className="big-image-popup"><i className="fa fa-search-plus" /></a>
                       </div>
                       {/*Single Product Image End*/}
@@ -50,16 +96,8 @@ function SingleProduct() {
                     <div className="tab-pane fade" id="single-slide3" role="tabpanel" aria-labelledby="single-slide-tab-3">
                       {/*Single Product Image Start*/}
                       <div className="single-product-img easyzoom img-full">
-                        <img width={600} height={600} src="assets/images/big-product-image/product06.webp" className="img-fluid" alt="" />
+                        <img width={600} height={600} src={product.gallery[1]} className="img-fluid" alt="" />
                         <a href="assets/images/big-product-image/product06.webp" className="big-image-popup"><i className="fa fa-search-plus" /></a>
-                      </div>
-                      {/*Single Product Image End*/}
-                    </div>
-                    <div className="tab-pane fade" id="single-slide4" role="tabpanel" aria-labelledby="single-slide-tab-4">
-                      {/*Single Product Image Start*/}
-                      <div className="single-product-img easyzoom img-full">
-                        <img width={600} height={600} src="assets/images/big-product-image/product07.webp" className="img-fluid" alt="" />
-                        <a href="assets/images/big-product-image/product07.webp" className="big-image-popup"><i className="fa fa-search-plus" /></a>
                       </div>
                       {/*Single Product Image End*/}
                     </div>
@@ -71,18 +109,11 @@ function SingleProduct() {
               <div className="col-lg-6 col-md-12 col-xs-12">
                 {/* product quick view description */}
                 <div className="product-feature-details">
-                  <h2 className="product-title mb-15">Kaoreet lobortis sagittis laoreet</h2>
-                  <p className="product-rating">
-                    <i className="fa fa-star active" />
-                    <i className="fa fa-star active" />
-                    <i className="fa fa-star active" />
-                    <i className="fa fa-star active" />
-                    <i className="fa fa-star" />
-                    <a href="#">(1 customer review)</a>
-                  </p>
+                  <h2 className="product-title mb-15">{product.title}</h2>
                   <h2 className="product-price mb-15">
-                    <span className="main-price">$12.90</span>
-                    <span className="discounted-price"> $10.00</span>
+                    <span className="main-price">$ {product.price*1.5}</span>
+                    &nbsp; &nbsp;
+                    <span className="discounted-price">$ {product.price} </span>
                   </h2>
                   <p className="product-description mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing
                     elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -93,14 +124,14 @@ function SingleProduct() {
                       <input type="text" defaultValue={1} />
                     </div>
                     <div className="add-to-cart-btn">
-                      <a href="#"><i className="fa fa-shopping-cart" /> Add to Cart</a>
+                      <a onClick={addCart}><i className="fa fa-shopping-cart" /> Add to Cart</a>
                     </div>
                   </div>
                   <div className="single-product-action-btn mb-20">
-                    <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" /> Add to
+                    <a onClick={favorite} data-tooltip="Add to wishlist"> <span className="icon_heart_alt" /> Add to
                       wishlist</a>
                   </div>
-                  
+
                 </div>
                 {/* end of product quick view description */}
               </div>
@@ -109,10 +140,7 @@ function SingleProduct() {
           {/*=======  End of single product content container  =======*/}
         </div>
       </div>
-      {/*=====  End of single product content  ======*/}
-      {/*=============================================
-    =            single product tab         =
-    =============================================*/}
+      
       <div className="single-product-tab-section mb-35">
         <div className="container">
           <div className="row">
@@ -148,153 +176,13 @@ function SingleProduct() {
                       </tbody>
                     </table>
                   </div>
-                  
+
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/*=====  End of single product tab  ======*/}
-      {/*=============================================
-	=            Related Product slider         =
-	=============================================*/}
-      <div className="slider related-product-slider mb-35">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              {/*=======  multisale  slider section title  =======*/}
-              <div className="section-title">
-                <h3>Related Product</h3>
-              </div>
-              {/*=======  End of multisale slider section title  =======*/}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-12">
-              {/*=======  related product slider wrapper  =======*/}
-              <div className="related-product-slider-wrapper">
-                {/*=======  single related slider product  =======*/}
-                <div className="gf-product related-slider-product float-start col-3">
-                  <div className="image">
-                    <a href="single-product.html">
-                      <span className="onsale">Sale!</span>
-                      <img width={350} height={350} src="assets/images/products/product01.webp" className="img-fluid" alt="" />
-                    </a>
-                    <div className="product-hover-icons">
-                      <a href="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></a>
-                      <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="product-content">
-                    <div className="product-categories">
-                      <a href="shop-left-sidebar.html">Fast Foods</a>,
-                      <a href="shop-left-sidebar.html">Vegetables</a>
-                    </div>
-                    <h3 className="product-title"><a href="single-product.html">Ornare sed consequat nisl
-                      eget</a></h3>
-                    <div className="price-box">
-                      <span className="main-price">$89.00</span>
-                      <span className="discounted-price">$80.00</span>
-                    </div>
-                  </div>
-                </div>
-                {/*=======  End of single related slider product  =======*/}
-                {/*=======  single related slider product  =======*/}
-                <div className="gf-product related-slider-product float-start col-3">
-                  <div className="image">
-                    <a href="single-product.html">
-                      <span className="onsale">Sale!</span>
-                      <img width={350} height={350} src="assets/images/products/product02.webp" className="img-fluid" alt="" />
-                    </a>
-                    <div className="product-hover-icons">
-                      <a href="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></a>
-                      <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="product-content">
-                    <div className="product-categories">
-                      <a href="shop-left-sidebar.html">Fast Foods</a>,
-                      <a href="shop-left-sidebar.html">Vegetables</a>
-                    </div>
-                    <h3 className="product-title"><a href="single-product.html">Ornare sed consequat nisl
-                      eget</a></h3>
-                    <div className="price-box">
-                      <span className="main-price">$89.00</span>
-                      <span className="discounted-price">$80.00</span>
-                    </div>
-                  </div>
-                </div>
-                {/*=======  End of single related slider product  =======*/}
-                {/*=======  single related slider product  =======*/}
-                <div className="gf-product related-slider-product float-start col-3">
-                  <div className="image">
-                    <a href="single-product.html">
-                      <span className="onsale">Sale!</span>
-                      <img width={350} height={350} src="assets/images/products/product03.webp" className="img-fluid" alt="" />
-                    </a>
-                    <div className="product-hover-icons">
-                      <a href="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></a>
-                      <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="product-content">
-                    <div className="product-categories">
-                      <a href="shop-left-sidebar.html">Fast Foods</a>,
-                      <a href="shop-left-sidebar.html">Vegetables</a>
-                    </div>
-                    <h3 className="product-title"><a href="single-product.html">Ornare sed consequat nisl
-                      eget</a></h3>
-                    <div className="price-box">
-                      <span className="main-price">$89.00</span>
-                      <span className="discounted-price">$80.00</span>
-                    </div>
-                  </div>
-                </div>
-                {/*=======  End of single related slider product  =======*/}
-                {/*=======  single related slider product  =======*/}
-                <div className="gf-product related-slider-product float-start col-3">
-                  <div className="image">
-                    <a href="single-product.html">
-                      <span className="onsale">Sale!</span>
-                      <img width={350} height={350} src="assets/images/products/product04.webp" className="img-fluid" alt="" />
-                    </a>
-                    <div className="product-hover-icons">
-                      <a href="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></a>
-                      <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="product-content">
-                    <div className="product-categories">
-                      <a href="shop-left-sidebar.html">Fast Foods</a>,
-                      <a href="shop-left-sidebar.html">Vegetables</a>
-                    </div>
-                    <h3 className="product-title"><a href="single-product.html">Ornare sed consequat nisl
-                      eget</a></h3>
-                    <div className="price-box">
-                      <span className="main-price">$89.00</span>
-                      <span className="discounted-price">$80.00</span>
-                    </div>
-                  </div>
-                </div>
-                {/*=======  End of single related slider product  =======*/}
-                {/*=======  single related slider product  =======*/}
-                
-                {/*=======  End of single related slider product  =======*/}
-              </div>
-              {/*=======  End of related product slider wrapper  =======*/}
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*=====  End of Related product slider  ======*/}
-      {/*=============================================
-	=            Upsell Product slider         =
-	=============================================*/}
       <div className="slider related-product-slider mb-50">
         <div className="container">
           <div className="row">
@@ -308,15 +196,16 @@ function SingleProduct() {
           </div>
           <div className="row">
             <div className="col-lg-12">
-              {/*=======  related product slider wrapper  =======*/}
               <div className="related-product-slider-wrapper">
-                {/*=======  single related slider product  =======*/}
-                <div className="gf-product related-slider-product col-3 float-start">
+                {/* BAŞLA */}
+                {topFour.map(i => (
+
+                <div className="gf-product related-slider-product col-3 float-start" key={i.id}>
                   <div className="image">
-                    <a href="single-product.html">
+                    <Link to={`/single-product/${i.id}`}>
                       <span className="onsale">Sale!</span>
-                      <img width={350} height={350} src="assets/images/products/product01.webp" className="img-fluid" alt="" />
-                    </a>
+                      <img width={350} height={350} src={i.image} className="img-fluid" alt="" />
+                    </Link>
                     <div className="product-hover-icons">
                       <a href="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></a>
                       <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" />
@@ -324,103 +213,19 @@ function SingleProduct() {
                     </div>
                   </div>
                   <div className="product-content">
-                    <div className="product-categories">
-                      <a href="shop-left-sidebar.html">Fast Foods</a>,
-                      <a href="shop-left-sidebar.html">Vegetables</a>
-                    </div>
-                    <h3 className="product-title"><a href="single-product.html">Ornare sed consequat nisl
-                      eget</a></h3>
+                    <h3 className="product-title"><Link to={`/single-product/${i.id}`}>{i.title} </Link></h3>
                     <div className="price-box">
-                      <span className="main-price">$89.00</span>
-                      <span className="discounted-price">$80.00</span>
+                      <span className="main-price">${i.price*1.5}</span>
+                      &nbsp;
+                      &nbsp;
+                      &nbsp;
+                      <span className="discounted-price">${i.price}</span>
                     </div>
                   </div>
                 </div>
-                {/*=======  End of single related slider product  =======*/}
-                {/*=======  single related slider product  =======*/}
-                <div className="gf-product related-slider-product col-3 float-start">
-                  <div className="image">
-                    <a href="single-product.html">
-                      <span className="onsale">Sale!</span>
-                      <img width={350} height={350} src="assets/images/products/product02.webp" className="img-fluid" alt="" />
-                    </a>
-                    <div className="product-hover-icons">
-                      <a href="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></a>
-                      <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="product-content">
-                    <div className="product-categories">
-                      <a href="shop-left-sidebar.html">Fast Foods</a>,
-                      <a href="shop-left-sidebar.html">Vegetables</a>
-                    </div>
-                    <h3 className="product-title"><a href="single-product.html">Ornare sed consequat nisl
-                      eget</a></h3>
-                    <div className="price-box">
-                      <span className="main-price">$89.00</span>
-                      <span className="discounted-price">$80.00</span>
-                    </div>
-                  </div>
-                </div>
-                {/*=======  End of single related slider product  =======*/}
-                {/*=======  single related slider product  =======*/}
-                <div className="gf-product related-slider-product col-3 float-start">
-                  <div className="image">
-                    <a href="single-product.html">
-                      <span className="onsale">Sale!</span>
-                      <img width={350} height={350} src="assets/images/products/product03.webp" className="img-fluid" alt="" />
-                    </a>
-                    <div className="product-hover-icons">
-                      <a href="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></a>
-                      <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="product-content">
-                    <div className="product-categories">
-                      <a href="shop-left-sidebar.html">Fast Foods</a>,
-                      <a href="shop-left-sidebar.html">Vegetables</a>
-                    </div>
-                    <h3 className="product-title"><a href="single-product.html">Ornare sed consequat nisl
-                      eget</a></h3>
-                    <div className="price-box">
-                      <span className="main-price">$89.00</span>
-                      <span className="discounted-price">$80.00</span>
-                    </div>
-                  </div>
-                </div>
-                {/*=======  End of single related slider product  =======*/}
-                {/*=======  single related slider product  =======*/}
-                <div className="gf-product related-slider-product col-3 float-start">
-                  <div className="image">
-                    <a href="single-product.html">
-                      <span className="onsale">Sale!</span>
-                      <img width={350} height={350} src="assets/images/products/product04.webp" className="img-fluid" alt="" />
-                    </a>
-                    <div className="product-hover-icons">
-                      <a href="#" data-tooltip="Add to cart"> <span className="icon_cart_alt" /></a>
-                      <a href="#" data-tooltip="Add to wishlist"> <span className="icon_heart_alt" />
-                      </a>
-                    </div>
-                  </div>
-                  <div className="product-content">
-                    <div className="product-categories">
-                      <a href="shop-left-sidebar.html">Fast Foods</a>,
-                      <a href="shop-left-sidebar.html">Vegetables</a>
-                    </div>
-                    <h3 className="product-title"><a href="single-product.html">Ornare sed consequat nisl
-                      eget</a></h3>
-                    <div className="price-box">
-                      <span className="main-price">$89.00</span>
-                      <span className="discounted-price">$80.00</span>
-                    </div>
-                  </div>
-                </div>
-                
-                {/*=======  End of single related slider product  =======*/}
+                ))}
+                {/* BİTİR */}
               </div>
-              {/*=======  End of related product slider wrapper  =======*/}
             </div>
           </div>
         </div>

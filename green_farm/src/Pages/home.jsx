@@ -1,10 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategories, fetchProducts, getWishlist } from "../redux/slices/CommerceSlice";
+import { filterByCategory, allProducts, selectCategory, selectedCategory } from "../redux/slices/CommerceSlice";
 
-function Home({ categories, dealProducts }) {
-    const topFour = dealProducts.filter((item, index) => index < 4);
-    const sixProducts = dealProducts.filter((item, index) => index < 25 && index > 18);
-    const [timeRemaining, setTimeRemaining] = useState(3600); 
+function Home() {
+
+    const dispatch = useDispatch();
+    const products = useSelector((s) => s.CommerceSlice.filteredProducts);
+    const categories = useSelector((s) => s.CommerceSlice.categories);
+
+    useEffect(() => {
+        dispatch(fetchProducts());
+        dispatch(fetchCategories());
+    }, [dispatch]);
+
+    const filter = (id)=>{
+        dispatch(filterByCategory(id))
+    }
+
+   
+
+
+    const topFour = products.filter((item, index) => index < 4);
+    const sixProducts = products.filter((item, index) => index < 25 && index > 18);
+    const [timeRemaining, setTimeRemaining] = useState(3600);
+
+
+
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -40,9 +63,9 @@ function Home({ categories, dealProducts }) {
                         <div className="col-lg-12">
                             <div className="category-slider-container">
                                 {categories.map(category => (
-                                    <div className="single-category col-2 float-start">
+                                    <div className="single-category col-2 float-start" key={category.id}>
                                         <div className="category-image">
-                                            <Link to="shop-list" title="Vegetables">
+                                            <Link onClick={() => filter(category.id)} to={`/shop-list/${category.id}`} title="Vegetables">
                                                 <img width={121} height={121} src={category.image_slug} className="img-fluid rounded-circle" alt="" />
                                             </Link>
                                         </div>
@@ -88,9 +111,9 @@ function Home({ categories, dealProducts }) {
                             <div className="gallery-product-container">
                                 <div className="row no-gutters">
                                     {sixProducts.map(item => (
-                                        <div className="col-lg-4 col-sm-6">
+                                        <div className="col-lg-4 col-sm-6" key={item.id}>
                                             <div className="single-featured-product">
-                                                <Link to="single-product">
+                                                <Link to={`single-product/${item.id}`}>
                                                     <img width={350} height={350} src={item.image} className="img-fluid" alt="" />
                                                 </Link>
                                             </div>
@@ -119,7 +142,7 @@ function Home({ categories, dealProducts }) {
                                 {topFour.map(product => (
                                     <div className="gf-product multisale-slider-product col-3 float-start" key={product.id}>
                                         <div className="image">
-                                            <Link to="single-product">
+                                            <Link to={`single-product/${product.id}`}>
                                                 <span className="onsale">Sale!</span>
                                                 <img width={350} height={350} src={product.image} className="img-fluid" alt="" />
                                             </Link>
@@ -130,7 +153,7 @@ function Home({ categories, dealProducts }) {
                                         </div>
                                         <div className="product-countdown" data-countdown="2023/05/01" />
                                         <div className="product-content">
-                                            <h3 className="product-title"><Link to="single-product">{product.title}</Link></h3>
+                                            <h3 className="product-title"><Link to={`single-product/${product.id}`}>{product.title}</Link></h3>
                                             <div className="price-box">
                                                 <span className="main-price">$ {product.price * 1.5}</span>
                                                 <span className="discounted-price">$ {product.price}</span>
